@@ -157,4 +157,13 @@
     <select id="selectProductById" resultType="com.pn.entity.Product">
         select * from product where product_id = #{productId}
     </select>
+
+    <!--    //批量删除/product-list-delete
+    public int setIsDeleteByUids(List<Integer> productIdList);-->
+    <update id="setIsDeleteByUids">
+        delete from product where product_id in
+        <foreach collection="list" open="(" close=")" separator="," item="productId">
+            #{productId}
+        </foreach>
+    </update>
 </mapper>

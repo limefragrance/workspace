@@ -101,4 +101,14 @@ public class ProductServiceImpl implements ProductService {
         }
         return Result.err(Result.CODE_ERR_BUSINESS,"商品修改失败！");
     }
+
+    //批量删除/product-list-delete
+    @Override
+    public Result removeProductByIds(List<Integer> productIdList) {
+        int i = productMapper.setIsDeleteByUids(productIdList);
+        if(i>0){
+            return Result.ok("用户删除成功！");
+        }
+        return Result.err(Result.CODE_ERR_BUSINESS,"用户删除失败！");
+    }
 }

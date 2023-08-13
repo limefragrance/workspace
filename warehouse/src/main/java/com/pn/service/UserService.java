@@ -3,7 +3,11 @@ package com.pn.service;
 import com.pn.entity.Result;
 import com.pn.entity.User;
 import com.pn.page.Page;
+import org.apache.ibatis.annotations.Param;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public interface UserService {
@@ -28,4 +32,7 @@ public interface UserService {
 
 	//重置密码的业务方法
 	public Result resetPwd(Integer userId);
+
+	//查询所有用户
+	public void selectUser(HttpServletResponse response,Page page) throws IOException;
 }

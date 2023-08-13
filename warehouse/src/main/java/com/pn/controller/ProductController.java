@@ -254,4 +254,13 @@ public class ProductController {
         //响应
         return result;
     }
+
+    //批量删除/product-list-delete
+    @DeleteMapping("/product-list-delete")
+    public Result deleteProductByIds(@RequestBody List<Integer> productIdList){
+        //执行业务
+        Result result = productService.removeProductByIds(productIdList);
+        //响应
+        return result;
+    }
 }

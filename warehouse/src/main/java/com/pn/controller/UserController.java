@@ -1,5 +1,6 @@
 package com.pn.controller;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +12,8 @@ import com.pn.service.*;
 import com.pn.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping("/user")
@@ -190,5 +193,11 @@ public class UserController {
 		Result result = userService.resetPwd(userId);
 		//响应
 		return result;
+	}
+
+	@RequestMapping("/exportTable")
+	public void exportTable(HttpServletResponse response,Page page) throws IOException {
+		//从数据库查询所有数据
+		userService.selectUser(response,page);
 	}
 }

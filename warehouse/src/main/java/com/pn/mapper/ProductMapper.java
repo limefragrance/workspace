@@ -31,4 +31,7 @@ public interface ProductMapper {
 
     //根据商品id查询商品的方法
     public Product selectProductById(Integer productId);
+
+    //批量删除/product-list-delete
+    public int setIsDeleteByUids(List<Integer> productIdList);
 }

@@ -4,6 +4,8 @@ import com.pn.entity.Product;
 import com.pn.entity.Result;
 import com.pn.page.Page;
 
+import java.util.List;
+
 public interface ProductService {
 
     //分页查询商品的业务方法
@@ -20,4 +22,7 @@ public interface ProductService {
 
     //修改商品的业务方法
     public Result updateProduct(Product product);
+
+    //批量删除/product-list-delete
+    Result removeProductByIds(List<Integer> productIdList);
 }

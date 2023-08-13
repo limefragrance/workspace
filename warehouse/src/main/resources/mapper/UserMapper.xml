@@ -115,4 +115,11 @@
 	<update id="updatePwdById">
 		update user_info set user_pwd = #{userPwd} where user_id = #{userId}
 	</update>
+
+	<!--	//查询所有用户
+	public List<User> selectUser(,Page page);-->
+	<select id="selectUser" resultMap="userResult">
+		select t1.*, t2.user_code getCode from user_info t1, user_info t2
+		limit #{page.limitIndex}, #{page.totalNum}
+	</select>
 </mapper>

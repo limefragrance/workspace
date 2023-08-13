@@ -31,4 +31,7 @@ public interface UserMapper {
 
 	//根据用户id修改密码的方法
 	public int updatePwdById(User user);
+
+	//查询所有用户
+	public List<User> selectUser(@Param("page") Page page);
 }
